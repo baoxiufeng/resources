@@ -1,4 +1,5 @@
 #!/bin/sh
+#author:baoxiufeng
 
 for port in 6379 6380 6381 6389 6390 6391
 do

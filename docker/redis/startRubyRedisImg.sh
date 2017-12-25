@@ -1,4 +1,5 @@
 #!/bin/sh
+#author:baoxiufeng
 
 echo "To run redis cluster tool docker image: bxf/ruby_redis"
 export CLUSTER_NODES="127.0.0.1:6379 127.0.0.1:6380 127.0.0.1:6381 127.0.0.1:6389 127.0.0.1:6390 127.0.0.1:6391"

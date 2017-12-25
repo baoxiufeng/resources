@@ -1,4 +1,5 @@
 #!/bin/sh
+#author:baoxiufeng
 
 for id in $(docker ps -q)
 do
