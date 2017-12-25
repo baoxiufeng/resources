@@ -1,0 +1,12 @@
+FROM redis:3.2
+MAINTAINER baoxiufeng
+
+ENV REDIS_HOME /usr/local
+RUN mkdir $REDIS_HOME/conf
+WORKDIR $REDIS_HOME/conf
+
+RUN echo "port 6381" > redis.conf
+RUN echo "cluster-enabled yes" >> redis.conf
+RUN echo "cluster-config-file nodes_6381.conf" >> redis.conf
+
+CMD ["redis-server","/usr/local/conf/redis.conf"]
