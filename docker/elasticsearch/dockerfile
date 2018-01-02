@@ -54,9 +54,3 @@ COPY docker-entrypoint.sh /
 EXPOSE 9200 9300 8300
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["elasticsearch"]
-
-RUN echo "port 6379" > redis.conf
-RUN echo "cluster-enabled yes" >> redis.conf
-RUN echo "cluster-config-file nodes_6379.conf" >> redis.conf
-
-CMD ["redis-server","/usr/local/conf/redis.conf"]
