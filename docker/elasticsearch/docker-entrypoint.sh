@@ -8,10 +8,13 @@ if [ "${1:0:1}" = '-' ]; then
 fi
 
 if [ "$1" = 'elasticsearch' -a "$(id -u)" = '0' ]; then
-	for path in $ES_HOME/data $ES_HOME/logs
+	for path in \
+		/usr/share/elasticsearch/data \
+		/usr/share/elasticsearch/logs \
 	; do
 		chown -R elasticsearch:elasticsearch "$path"
 	done
+	
 	set -- su-exec elasticsearch "$@"
 fi
 
