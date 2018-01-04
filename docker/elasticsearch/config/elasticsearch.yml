@@ -1,5 +1,5 @@
-path.logs: /usr/share/elasticsearch/logs
-path.data: /usr/share/elasticsearch/data
+path.logs: /home/elasticsearch/elk/elasticsearch/logs
+path.data: /home/elasticsearch/elk/elasticsearch/data
 
 http.cors.enabled: true
 http.cors.allow-origin: "*"
@@ -11,8 +11,7 @@ network.host: 0.0.0.0
 http.port: ${HTTP_PORT}
 transport.tcp.port: ${TCP_PORT}
 
-discovery.zen.ping.unicast.hosts: ["127.0.0.1:9301", "127.0.0.1:9302"]
-discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.unicast.hosts: ["127.0.0.1:9301", "127.0.0.1:9302", "127.0.0.1:9303"]
 discovery.zen.ping_timeout: 120s
 discovery.zen.minimum_master_nodes: 2
 client.transport.ping_timeout: 60s
