@@ -1,5 +1,6 @@
 #!/bin/sh
 #author:baoxiufeng
+#---unused
 
 CLUSTER_NAME="MY-ELK"
 
