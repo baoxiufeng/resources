@@ -1,0 +1,28 @@
+FROM bxf/centos-jdk7
+MAINTAINER baoxiufeng
+# tag: bxf/zookeeper-cluster
+
+# set enviroment variables
+ENV ZK_VERSION=3.4.9
+
+# install zookeeper
+ADD ./zookeeper-${ZK_VERSION}.tar.gz /opt/
+ENV ZK_HOME=/opt/zookeeper-${ZK_VERSION}
+RUN mv ${ZK_HOME}/conf/zoo_sample.cfg ${ZK_HOME}/conf/zoo.cfg && \
+    sed -i -r 's|#(log4j.appender.ROLLINGFILE.MaxBackupIndex.*)|\1|g' ${ZK_HOME}/conf/log4j.properties && \
+    sed -i -r 's|#autopurge|autopurge|g' ${ZK_HOME}/conf/zoo.cfg && \
+    sed -i -r 's|dataDir|#dataDir|g' ${ZK_HOME}/conf/zoo.cfg && \
+    sed -i -r 's|dataLogDir|#dataLogDir|g' ${ZK_HOME}/conf/zoo.cfg && \
+    sed -i -r 's|clientPort|#clientPort|g' ${ZK_HOME}/conf/zoo.cfg && \
+    mkdir ${ZK_HOME}/data ${ZK_HOME}/datalogs
+
+# add zookeeper start shell to container
+ADD ./startZkCluster.sh /usr/bin/startZkCluster.sh
+
+# set container volumn directories
+WORKDIR ${ZK_HOME}
+VOLUME ["${ZK_HOME}/conf", "${ZK_HOME}/data", "${ZK_HOME}/datalogs"]
+
+# set container start shell
+CMD sh /usr/bin/startZkCluster.sh
+
