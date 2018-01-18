@@ -1,6 +1,0 @@
-FROM ruby:2.2.5
-MAINTAINER baoxiufeng
-
-RUN gem install redis
-ADD ./redis-3.2.5.tar.gz /usr/local
-RUN cd /usr/local && ln -s redis-3.2.5 redis
