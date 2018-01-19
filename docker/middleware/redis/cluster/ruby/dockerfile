@@ -1,0 +1,10 @@
+FROM ruby:2.2.5
+MAINTAINER baoxiufeng
+# tag:bxf/redis-cluster-util
+
+RUN gem install redis
+ADD ./redis-3.2.5.tar.gz /usr/local
+ADD ./startRedisCluster.sh /usr/bin/startRedisCluster.sh
+RUN cd /usr/local && ln -s redis-3.2.5 redis
+
+CMD sh /usr/bin/startRedisCluster.sh

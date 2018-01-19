@@ -1,0 +1,19 @@
+FROM redis:3.2
+MAINTAINER baoxiufeng
+# tag:bxf/redis-cluster
+
+# set enviroment variables
+ENV REDIS_HOME /usr/local                                            
+
+# create redis config directory
+RUN mkdir -p $REDIS_HOME/conf /var/redis/data
+
+# add redis start shell to container
+ADD ./startRedisClusterNodes.sh /usr/bin/startRedisClusterNodes.sh
+
+# set container volumn directories
+WORKDIR ${REDIS_HOME}
+VOLUME ["${REDIS_HOME}/conf", "/var/redis/data"]
+
+# set container start shell
+CMD sh /usr/bin/startRedisClusterNodes.sh
