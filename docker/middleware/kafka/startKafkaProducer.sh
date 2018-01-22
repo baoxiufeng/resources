@@ -2,7 +2,6 @@
 
 cd ${KAFKA_HOME}
 
-
 startPortSeq=${SPS}
 endPortSeq=${EPS}
 if [ ! ${SPS} ]; then
