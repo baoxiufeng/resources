@@ -1,0 +1,10 @@
+FROM centos
+MAINTAINER baoxiufeng
+# tag bxf/centos-jdk7
+
+# set enviroment variables
+ENV JAVA_VERSION=1.7.0_45 \
+    JAVA_HOME=/opt/java/jdk1.7.0_45 \
+    PATH=${PATH}:/opt/java/jdk1.7.0_45/bin \
+    LANG=C.UTF-8
+ADD jdk${JAVA_VERSION}.tar.gz /opt/java

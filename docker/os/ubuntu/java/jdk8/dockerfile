@@ -1,0 +1,4 @@
+FROM bxf/ubuntu
+MAINTAINER baoxiufeng
+# tag: bxf/ubuntu-jdk8
+RUN apt-get update && apt-get install -y openjdk-8-jdk

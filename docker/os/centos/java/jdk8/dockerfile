@@ -1,0 +1,10 @@
+FROM centos
+MAINTAINER baoxiufeng
+# tag bxf/centos-jdk8
+
+# set enviroment variables
+ENV JAVA_VERSION=1.8.0_102 \
+    JAVA_HOME=/opt/java/jdk1.8.0_102 \
+    PATH=${PATH}:/opt/java/jdk1.8.0_102/bin \
+    LANG=C.UTF-8
+ADD jdk${JAVA_VERSION}.tar.gz /opt/java
